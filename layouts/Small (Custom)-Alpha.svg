@@ -663,10 +663,10 @@ Copyright © 2011-2014, 2016, marmuta &lt;marmvta@gmail.com&gt;</dc:title>
     <rect
        id="RTRN"
        style="fill:#e5d8b2;stroke:#000000;stroke-width:1.25999999;stroke-miterlimit:4;stroke-dasharray:none"
-       height="22.739635"
-       width="40.7400"
-       y="48.630386"
-       x="252.6300"
+       height="22.740768"
+       width="30.2400"
+       y="24.629618"
+       x="263.1300"
        inkscape:label="#RTRN" />
     <rect
        id="LEFT"
@@ -719,10 +719,10 @@ Copyright © 2011-2014, 2016, marmuta &lt;marmvta@gmail.com&gt;</dc:title>
     <rect
        id="DELE"
        style="fill:#d8cca5;stroke:#000000;stroke-width:1.25999999;stroke-miterlimit:4;stroke-dasharray:none"
-       height="22.740768"
-       width="30.2400"
-       y="24.629618"
-       x="263.1300" />
+       height="22.739635"
+       width="40.7400"
+       y="48.630386"
+       x="252.6300" />
     <rect
        id="SPCE"
        style="fill:#e5d8b2;stroke:#000000;stroke-width:1.25999999;stroke-miterlimit:4;stroke-dasharray:none"
