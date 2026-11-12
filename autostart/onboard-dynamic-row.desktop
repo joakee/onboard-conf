@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Onboard dynamic top row
+Comment=Switches Onboard's top row keys based on the focused app
+Exec=sh -c 'exec python3 "$HOME/.local/share/onboard/dynamic/okb.py" watch'
+X-GNOME-Autostart-enabled=true
+Hidden=false

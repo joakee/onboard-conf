@@ -1,0 +1,219 @@
+# Onboard dynamic top row
+# -----------------------
+# Each [profiles.<name>] lists the keys shown in the half-height top row
+# (Esc is always added first, at the far left).
+#
+# A key is { label = "...", keys = "..." } and/or type = "..."
+#   keys : xdotool key names, space separated, sent in order.
+#          "ctrl+shift+t"  -> one chord
+#          "ctrl+b c"      -> Ctrl+B, then c   (tmux prefix sequences)
+#          "Escape colon w Return" -> typed one after another
+#   type : literal text typed after `keys` (optional)
+# Key names are X keysyms (run `xev` and press a key to see its name):
+#   Escape Return Tab space slash comma colon minus equal grave Left Up F5 ...
+#
+# include = ["other-profile"]  prepends that profile's keys.
+#
+# Editing this file is picked up automatically by the watcher (no restart).
+
+[settings]
+base_layout = "~/.local/share/onboard/layouts/Small (Custom).onboard"
+default_profile = "default"
+
+# Window rules: first match wins. `class` is a case-insensitive regex tested
+# against both WM_CLASS strings of the focused window.
+[[rules]]
+class = "alacritty|xfce4-terminal|kitty|foot|wezterm|xterm|st-256color"
+terminal = true            # pick the profile from what is running inside
+
+[[rules]]
+class = "^code$|code-oss|vscodium|com\\.visualstudio\\.code"
+profile = "vscode"
+
+[[rules]]
+class = "brave|chromium|google-chrome|firefox|navigator|librewolf"
+profile = "browser"
+
+[[rules]]
+class = "obsidian"
+profile = "obsidian"
+
+[[rules]]
+class = "xournal"
+profile = "xournalpp"
+
+[[rules]]
+class = "thunar"
+profile = "thunar"
+
+# Terminal: foreground program -> profile. Anything else uses `shell`.
+[terminal]
+shell = "term-shell"
+tmux = "term-tmux"              # tmux running a shell in its active pane
+[terminal.commands]
+nvim = "term-nvim"
+vim = "term-nvim"
+vi = "term-nvim"
+
+# ---------------------------------------------------------------- profiles
+
+[profiles.default]
+keys = [
+  { label = "Copy", keys = "ctrl+c" },
+  { label = "Cut",  keys = "ctrl+x" },
+  { label = "Pste", keys = "ctrl+v" },
+  { label = "Undo", keys = "ctrl+z" },
+  { label = "All",  keys = "ctrl+a" },
+  { label = "Find", keys = "ctrl+f" },
+  { label = "Save", keys = "ctrl+s" },
+  { label = "Home", keys = "Home" },
+  { label = "End",  keys = "End" },
+  { label = "Del",  keys = "Delete" },
+]
+
+# -- terminal
+
+[profiles.term-common]
+keys = [
+  { label = "Copy", keys = "ctrl+shift+c" },
+  { label = "Pste", keys = "ctrl+shift+v" },
+  { label = "^C",   keys = "ctrl+c" },
+  { label = "^D",   keys = "ctrl+d" },
+  { label = "^R",   keys = "ctrl+r" },
+]
+
+[profiles.term-shell]
+include = ["term-common"]
+keys = [
+  { label = "^Z", keys = "ctrl+z" },
+  { label = "^L", keys = "ctrl+l" },
+  { label = "^A", keys = "ctrl+a" },
+  { label = "^E", keys = "ctrl+e" },
+  { label = "^W", keys = "ctrl+w" },
+  { label = "^U", keys = "ctrl+u" },
+  { label = "^K", keys = "ctrl+k" },
+]
+
+# tmux binds from ~/.tmux.conf (oh-my-tmux), prefix C-b
+[profiles.term-tmux]
+keys = [
+  { label = "+Win", keys = "ctrl+b c" },
+  { label = "‹Win", keys = "ctrl+b ctrl+h" },
+  { label = "Win›", keys = "ctrl+b ctrl+l" },
+  { label = "Spl─", keys = "ctrl+b minus" },
+  { label = "Spl│", keys = "ctrl+b underscore" },
+  { label = "Pane", keys = "ctrl+b o" },
+  { label = "Zoom", keys = "ctrl+b z" },
+  { label = "Scrl", keys = "ctrl+b Return" },
+  { label = "Dtch", keys = "ctrl+b d" },
+  { label = "Pste", keys = "ctrl+shift+v" },
+  { label = "^C",   keys = "ctrl+c" },
+  { label = "^D",   keys = "ctrl+d" },
+  { label = "^R",   keys = "ctrl+r" },
+]
+
+# Neovim (LazyVim, <leader> = space). Each starts with Escape so it also
+# works from insert mode.
+[profiles.term-nvim]
+keys = [
+  { label = ":",    keys = "Escape colon" },
+  { label = "Save", keys = "Escape colon w Return" },
+  { label = "Quit", keys = "Escape colon q Return" },
+  { label = "Undo", keys = "Escape u" },
+  { label = "Redo", keys = "Escape ctrl+r" },
+  { label = "Find", keys = "Escape space space" },
+  { label = "Grep", keys = "Escape space slash" },
+  { label = "Tree", keys = "Escape space e" },
+  { label = "‹Buf", keys = "Escape H" },
+  { label = "Buf›", keys = "Escape L" },
+  { label = "Def",  keys = "Escape g d" },
+  { label = "Cmt",  keys = "Escape g c c" },
+  { label = "/",    keys = "Escape slash" },
+]
+
+# -- apps
+
+[profiles.vscode]
+keys = [
+  { label = "Cmds", keys = "ctrl+shift+p" },
+  { label = "Open", keys = "ctrl+p" },
+  { label = "Find", keys = "ctrl+f" },
+  { label = "Repl", keys = "ctrl+h" },
+  { label = "Grep", keys = "ctrl+shift+f" },
+  { label = "Save", keys = "ctrl+s" },
+  { label = "Undo", keys = "ctrl+z" },
+  { label = "Redo", keys = "ctrl+shift+z" },
+  { label = "Cmt",  keys = "ctrl+slash" },
+  { label = "Side", keys = "ctrl+b" },
+  { label = "Term", keys = "ctrl+grave" },
+  { label = "Def",  keys = "F12" },
+  { label = "×Tab", keys = "ctrl+w" },
+]
+
+[profiles.browser]
+keys = [
+  { label = "Back", keys = "alt+Left" },
+  { label = "Fwd",  keys = "alt+Right" },
+  { label = "Rld",  keys = "ctrl+r" },
+  { label = "URL",  keys = "ctrl+l" },
+  { label = "+Tab", keys = "ctrl+t" },
+  { label = "×Tab", keys = "ctrl+w" },
+  { label = "ReOp", keys = "ctrl+shift+t" },
+  { label = "‹Tab", keys = "ctrl+shift+Tab" },
+  { label = "Tab›", keys = "ctrl+Tab" },
+  { label = "Find", keys = "ctrl+f" },
+  { label = "Zm+",  keys = "ctrl+equal" },
+  { label = "Zm-",  keys = "ctrl+minus" },
+]
+
+[profiles.obsidian]
+keys = [
+  { label = "Open", keys = "ctrl+o" },
+  { label = "Cmds", keys = "ctrl+p" },
+  { label = "Srch", keys = "ctrl+shift+f" },
+  { label = "New",  keys = "ctrl+n" },
+  { label = "View", keys = "ctrl+e" },
+  { label = "Back", keys = "ctrl+alt+Left" },
+  { label = "Fwd",  keys = "ctrl+alt+Right" },
+  { label = "B",    keys = "ctrl+b" },
+  { label = "I",    keys = "ctrl+i" },
+  { label = "Link", keys = "ctrl+k" },
+  { label = "Todo", keys = "ctrl+Return" },
+  { label = "Undo", keys = "ctrl+z" },
+  { label = "Grph", keys = "ctrl+g" },
+]
+
+# Xournal++ 1.2 default accelerators
+[profiles.xournalpp]
+keys = [
+  { label = "Pen",  keys = "ctrl+shift+p" },
+  { label = "Hilt", keys = "ctrl+shift+h" },
+  { label = "Ersr", keys = "ctrl+shift+e" },
+  { label = "Text", keys = "ctrl+shift+t" },
+  { label = "Sel",  keys = "ctrl+shift+r" },
+  { label = "Hand", keys = "ctrl+shift+a" },
+  { label = "Shpe", keys = "ctrl+1" },
+  { label = "Undo", keys = "ctrl+z" },
+  { label = "Redo", keys = "ctrl+y" },
+  { label = "Zm+",  keys = "ctrl+equal" },
+  { label = "Zm-",  keys = "ctrl+minus" },
+  { label = "+Pg",  keys = "ctrl+d" },
+  { label = "Save", keys = "ctrl+s" },
+]
+
+[profiles.thunar]
+keys = [
+  { label = "Back", keys = "alt+Left" },
+  { label = "Fwd",  keys = "alt+Right" },
+  { label = "Up",   keys = "alt+Up" },
+  { label = "Home", keys = "alt+Home" },
+  { label = "Path", keys = "ctrl+l" },
+  { label = "Hidn", keys = "ctrl+h" },
+  { label = "+Tab", keys = "ctrl+t" },
+  { label = "+Dir", keys = "ctrl+shift+n" },
+  { label = "Ren",  keys = "F2" },
+  { label = "Copy", keys = "ctrl+c" },
+  { label = "Cut",  keys = "ctrl+x" },
+  { label = "Pste", keys = "ctrl+v" },
+  { label = "Find", keys = "ctrl+f" },
+]

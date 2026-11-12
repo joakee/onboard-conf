@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- Matches the NewGruvNew-Dark GTK/xfwm4 theme -->
+<color_scheme name="NewGruvNew-Dark" format="2.1">
+    <window type="key-popup">
+        <color element="border" rgb="#7daea3" opacity="1.0"/>
+    </window>
+
+    <layer> <color element="background" rgb="#1d2021" opacity="1.0"/> </layer>
+    <layer> <color element="background" rgb="#1d2021" opacity="1.0"/> </layer>
+    <layer> <color element="background" rgb="#1d2021" opacity="1.0"/> </layer>
+
+    <key_group>
+        <!-- letter keys -->
+        <color element="fill"   rgb="#282524"/>
+        <color element="stroke" rgb="#423f3e"/>
+        <color element="label"  rgb="#fbf1c7"/>
+        <color element="fill"   rgb="#423f3e" prelight="true"/>
+        <color element="fill"   rgb="#7daea3" pressed="true"/>
+        <color element="label"  rgb="#1d2021" pressed="true"/>
+        <color element="fill"   rgb="#7daea3" active="true"/>
+        <color element="label"  rgb="#1d2021" active="true"/>
+        <color element="fill"   rgb="#e78a4e" locked="true"/>
+        <color element="label"  rgb="#1d2021" locked="true"/>
+        <color element="fill"   rgb="#45707a" scanned="true"/>
+        <color element="dwell-progress" rgb="#7daea3"/>
+        icon0
+
+        <key_group>
+            <color element="fill" rgb="#fbf1c7"/>
+            icon1, icon2
+        </key_group>
+
+        <!-- modifiers and function keys -->
+        <key_group>
+            <color element="fill"  rgb="#2a2d2b"/>
+            <color element="label" rgb="#bcb496"/>
+            icon3,
+            RCTL, LCTL, RALT, LALT, LWIN, CAPS,
+            LFSH, RTSH, NMLK, ESC,
+            MENU, RWIN, BKSP, TAB, RTRN,
+            KPDL, KPEN,
+            LEFT, RGHT, UP, DOWN, INS, DELE, HOME, END, PGUP, PGDN,
+            F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
+            Prnt, Pause, Scroll,
+            KPSU, KPDV, KPAD, KPMU,
+            secondaryclick, middleclick, doubleclick, dragclick, hoverclick,
+            hide, showclick, move, layer, settings,
+            quit
+        </key_group>
+
+        <key_group>
+            <color element="fill" rgb="#2a2d2b"/>
+            <color element="label" rgb="#7daea3"/>
+            m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15
+        </key_group>
+
+        <!-- word suggestions -->
+        <key_group>
+            <color element="fill" rgb="#242220"/>
+            wordlist, prediction
+        </key_group>
+    </key_group>
+</color_scheme>
