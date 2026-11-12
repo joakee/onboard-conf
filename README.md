@@ -4,7 +4,7 @@ Custom [Onboard](https://launchpad.net/onboard) on-screen keyboard setup:
 
 > Created for use with a Lenovo ThinkPad Yoga 11e with the XFCE desktop environment
 
-- **`Small (Custom)` layout**: a US-style layout with `` ` ``, `[ ]`, `; '` and `, . /`, a `\` key under Backspace, a 12?/Ctrl/Win/Alt bottom row, about 20px of side padding, and a half-height top row.
+- **`Small (Custom)` layout**: a US-style layout with `` ` ``, `[ ]`, `; '` and `, . /`, Enter under Backspace, `\` at the right end of the z–m row, a 12?/Ctrl/Win/Alt bottom row, about 20px of side padding, and a half-height top row.
 - **Theme `NewGruvNew-Dark`**: a Gruvbox-style colour scheme. The key labels use Maple Mono Bold.
 - **Dynamic top row** (`okb.py`): a watcher that changes the half-height row's keys to match the focused app. In terminals it also follows what's running inside (shell, tmux or Neovim). Keys are one-tap shortcuts sent with `xdotool`.
 
